@@ -354,5 +354,6 @@ __vm/
 Release/
 *.vcxproj*
 *.sln
+Thumbs.db
 
 
