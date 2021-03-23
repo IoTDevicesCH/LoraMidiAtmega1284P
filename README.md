@@ -1,6 +1,16 @@
 # LoraMidi Atmega1284P
 Small Lora(WAN) board using an Atmega1284P chip and RFM95 module
 
+## Specialities about this board
+- Arduino compatible
+- Atmega1284P with 128KB flash and 16KB RAM, perfect replacement for Atmega328 boards if using LoraWAN
+- Small form factor, 36.5mm lenght, 31.5mm width
+- TPS782 low quiescent 500nA regulator
+- RFM95 can be soldere to the bottom side
+- Voltage divier on board, enabled through two MOSFET driven by pin 0
+- I2C and 1Wire pullups on board
+- Input pin for interrupts with pullup resistor on board
+
 ## Board version 1.0
 ### Powering the board
 Maximum input voltage on RAW pin: 5.5V<br>
