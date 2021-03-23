@@ -6,6 +6,7 @@ Small Lora(WAN) board using an Atmega1284P chip and RFM95 module
 Maximum input voltage on RAW pin: 5.5V<br>
 Recommended minimum input voltage on RAW pin: 3.4V<br>
 LDO maximum current: 150mA<br>
+VCC on this board is 3.3V<br>
 With board version 1.0 it is not recommended to power the board through VCC if running from batteries<br>
 ### Sleep current ‘as is’ (without RFM95 or peripherals):
 Sleep current with WDT disabled and attached interrupt (1 minute average): 510nA<br>
