@@ -43,5 +43,19 @@ The following pullups/pulldowns are already included on the board for easy usage
   - Variant: 1284P
   - BOD: BOD Disabled
  
- ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
- With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
+![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
+With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
+
+## Device pictures
+# Device
+![Device](/docs/images/LoraMidi_1284P_device.jpg?raw=true "Device")
+
+# Top view
+![Top view](/docs/images/LoraMidi_1284P_topview.jpg?raw=true "Top view")
+
+# Bottom view
+![Bottom view](/docs/images/LoraMidi_1284P_bottomview.jpg?raw=true "Bottom view")
+
+# Measurements
+![Height](/docs/images/LoraMidi_1284P_height.jpg?raw=true "Height")
+![Width](/docs/images/LoraMidi_1284P_width.jpg?raw=true "Width")
