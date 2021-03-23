@@ -57,5 +57,5 @@ With the above settings you will be able to upload code through an FTDI adapter 
 ![Bottom view](/docs/images/LoraMidi_1284P_bottomview.jpg?raw=true "Bottom view")
 
 # Measurements
-![Height](/docs/images/LoraMidi_1284P_height.jpg?raw=true "Height")
+![Height](/docs/images/LoraMidi_1284P_height.jpg?raw=true "Height")<br>
 ![Width](/docs/images/LoraMidi_1284P_width.jpg?raw=true "Width")
