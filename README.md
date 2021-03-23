@@ -12,3 +12,18 @@ Sleep current with WDT enabled (1 minute average): 5.8μA
 
 ## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")
+
+## How to get started
+- Install current version of Arduion IDE
+- Add the following additional board manager for Atmega1284P from MightyCore support: https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
+- Select the following settings in your Arduino IDE
+  - Board: Atmega1284
+  - Bootloader: Yes (UART0)
+  - Pinout: Standard pinout
+  - Clock: External 8 MHz
+  - Compiler LTO: LTO disabled
+  - EEPROM: EEPROM retained
+  - Variant: 1284P
+  - BOD: BOD Disabled
+ ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")
+ With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
