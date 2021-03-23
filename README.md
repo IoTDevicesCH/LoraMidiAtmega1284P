@@ -12,7 +12,12 @@ Sleep current with WDT disabled and attached interrupt (1 minute average): 510nA
 Sleep current with WDT enabled (1 minute average): 5.8μA
 
 ## Pinout
-![Pinout](/docs/images/pinout.png?raw=true "Pinout")
+![Pinout](/docs/images/pinout.png?raw=true "Pinout")<br>
+The following pullups/pulldowns are already included on the board for easy usage:<br>
+- Pin 1 / 1 Wire / 4.7K pullup
+- Pin 16 / SDA, 4.7K pullup
+- Pin 17 / SCL, 4.7K pullup
+- Pin A2 / Interrupt / 10K pullup
 
 ## How to get started
 - Install current version of Arduino IDE
