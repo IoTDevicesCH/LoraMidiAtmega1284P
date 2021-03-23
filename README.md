@@ -10,4 +10,5 @@ LDO maximum current: 150mA<br>
 Sleep current with WDT disabled and attached interrupt (1 minute average): 510nA<br>
 Sleep current with WDT enabled (1 minute average): 5.8μA
 
+## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")
