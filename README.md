@@ -25,5 +25,6 @@ Sleep current with WDT enabled (1 minute average): 5.8μA
   - EEPROM: EEPROM retained
   - Variant: 1284P
   - BOD: BOD Disabled
- ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")
+ 
+ ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
  With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
