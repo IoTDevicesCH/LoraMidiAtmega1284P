@@ -15,7 +15,7 @@ Sleep current with WDT enabled (1 minute average): 5.8μA
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")
 
 ## How to get started
-- Install current version of Arduion IDE
+- Install current version of Arduino IDE
 - Add the following additional board manager for Atmega1284P from MightyCore support: https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
 - Select the following settings in your Arduino IDE
   - Board: Atmega1284
