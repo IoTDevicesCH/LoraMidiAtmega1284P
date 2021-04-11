@@ -1,26 +1,32 @@
 # LoraMidi Atmega1284P
-Small Lora(WAN) board using an Atmega1284P chip and RFM95 module
+Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TPL5010 timer with watchdog function. 
 
 ## Specialities about this board
 - Arduino compatible
-- Atmega1284P with 128KB flash and 16KB RAM, perfect replacement for Atmega328 boards if using LoraWAN
+- Atmega1284P with 128KB flash and 16KB RAM, easy replacement for Atmega328p boards
 - Small form factor, 36.5mm lenght, 31.5mm width
 - TPS782 low quiescent 500nA regulator
-- RFM95 can be soldere to the bottom side
+- RFM95 can be soldered to the bottom side
+- Wire antenna, helical antenna, SMA antenna support
+- TPL5010 can be used to wakeup the Atmega, with optional watchdog function
 - Voltage divier on board, enabled through two MOSFET driven by pin 0
-- I2C and 1Wire pullups on board
+- I2C and 1-Wire pullups on board
 - Input pin for interrupts with pullup resistor on board
+- Two GND pins can be powered on/off through a MOSFET driven by pin 15 to power on/off external peripherals
 
-## Board version 1.0
+## Board version 2.0
 ### Powering the board
-Maximum input voltage on RAW pin: 5.5V<br>
-Recommended minimum input voltage on RAW pin: 3.4V<br>
+Maximum input voltage on UREG pin: 5.5V<br>
+Recommended minimum input voltage on UREG pin: 3.4V<br>
 LDO maximum current: 150mA<br>
 VCC on this board is 3.3V<br>
-With board version 1.0 it is not recommended to power the board through VCC if running from batteries<br>
-### Sleep current ‘as is’ (without RFM95 or peripherals):
-Sleep current with WDT disabled and attached interrupt (1 minute average): 510nA<br>
-Sleep current with WDT enabled (1 minute average): 5.8μA
+To power the board through VCC it is recommended to cut the trace from the LDO to VCC to reduce power consumption. See in the solder jumper section how to disable the LDO.<br>
+### Sleep current without TPL5010 and RFM95, powered through the LDO:
+Sleep current with WDT disabled and attached interrupt (1 minute average): 520nA<br>
+Sleep current with WDT enabled (1 minute average): 6.1μA
+### Sleep current with TPL5010 and without RFM95, powered through the LDO:
+Sleep current with WDT disabled and TPL5010 attached as intterupt: 560nA
+### Sleep currents without LDO is approx. 500nA lower
 
 ## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")<br>
@@ -28,7 +34,26 @@ The following pullups/pulldowns are already included on the board for easy usage
 - Pin 1 / 1 Wire / 4.7K pullup
 - Pin 16 / SDA, 4.7K pullup
 - Pin 17 / SCL, 4.7K pullup
-- Pin A2 / Interrupt / 10K pullup
+- Pin 4 / Interrupt / 10K pullup
+
+## Solder jumpers
+The board has four solder jumpers.
+### LDO on/off
+- Top side, SJ1, closed = LDO on, open = LDO off
+### Voltage divider UREG/VCC selection
+- Bottom side, SJ2, left + middle connected = measure UREG, right + middle connected = measure VCC
+### TPL5010 on/off
+- Bottom side, SJ3, closed = TPL5010 powered, open = TPL5010 not powered
+### TPL5010 WDT functionality on/off
+- Bottom side, SJ4, closed = TPL5010 WDT on, open = TPL5010 WDT off
+![Solderjumpers](/docs/images/solderjumpers.png?raw=true "Solderjumpers")<br>
+
+## TPL5010 configuration
+The TPL5010 provides selectable timing intervals through resistor(s). On the bottom side, R14, R15 and VR1 are wired in parallel.<br>
+To set a fixed time interval, populate either one or both R14 and R15 resistors with the desired value resistors.<br>
+To set a variable time interval, don't populate R14 and R15 but populate VR1 with a trimmpotentiometer.<br>
+R14 and R15 are 0805 in size, the trimmpotentiometer pads are suited for the TC33X-2 line from Bourns.<br>
+Please check the datasheet on page 14 and 15 of the TPL5010 for the available timing intervals: https://www.ti.com/lit/ds/symlink/tpl5010.pdf<br>
 
 ## How to get started
 - Install current version of Arduino IDE

@@ -1,12 +1,12 @@
 // This sketch demonstrates how to measure voltage provided by VCC or RAW pin depending on solderjumper selection.
 // This voltage divider is switched on and off through two mosfets which are controller through pin 0.
-// If pin 0 is low, voltage divider is off, if pin 0 is high, voltage divider is on
+// If pin 0 is low, voltage divider is off, if pin 0 is high, voltage divider is on.
 
 int batteryReadPin = A0;        // set the input pin for the battery measurement
 int voltageDividerPin = 0;      // set the pin to enable the voltage divider
-const float AVCC = 1.1;         // internal reference votlage, for better accuracy measure it for each board!
-const float BATTRGND = 20;      // voltage divider resistor from A0 to GND, for better accuracy measure it for each board! Value in K ohms
-const float BATTRRAW = 100;     // voltage divider resistor from A0 to VCC or RAW depending on solder jumper, for better accuracy measure it for each board! Value in K ohms
+const float AREF = 1.1;         // internal reference votlage, for better accuracy use the printed value on the sticker!
+const float RGND = 20.0;          // voltage divider resistor from A0 to GND, for better accuracy use the printed value on the sticker! Value in K ohms
+const float RSUP = 100.0;         // voltage divider resistor from A0 to VCC or UREG depending on solder jumper, for better accuracy use the printed value on the sticker! Value in K ohms
 
 void setup() {
   Serial.begin(115200);
@@ -42,7 +42,7 @@ void loop() {
   digitalWrite(voltageDividerPin, LOW);
 
   //convert ADC reading to voltage and print it
-  float voltage = ((ADCreading * AVCC / 1024.0) * (BATTRRAW + BATTRGND) / BATTRGND);
+  float voltage = ((ADCreading * AREF / 1024.0) * (RSUP + RGND) / RGND);
   Serial.print("Voltage: ");
   Serial.println(voltage);
   delay(10000);
