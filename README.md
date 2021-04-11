@@ -26,7 +26,8 @@ Sleep current with WDT disabled and attached interrupt (1 minute average): 520nA
 Sleep current with WDT enabled (1 minute average): 6.1μA
 ### Sleep current with TPL5010 and without RFM95, powered through the LDO:
 Sleep current with WDT disabled and TPL5010 attached as intterupt: 560nA
-### Sleep currents without LDO is approx. 500nA lower
+### Sleep current with TPL5010 and without RFM95, powered through VCC (LDO disabled):
+Sleep current with WDT disabled and TPL5010 attached as intterupt: 160nA
 
 ## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")<br>
