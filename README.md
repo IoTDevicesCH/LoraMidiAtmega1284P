@@ -3,13 +3,13 @@ Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TP
 
 ## Specialities about this board
 - Arduino compatible
-- Atmega1284P with 128KB flash and 16KB RAM, easy replacement for Atmega328p boards
-- Small form factor, 36.5mm lenght, 31.5mm width
+- Atmega1284P @ 8MHz with 128KB flash and 16KB RAM, easy replacement for Atmega328p boards
+- Small form factor, 36.4mm lenght, 31.4mm width
 - TPS782 low quiescent 500nA regulator
 - RFM95 can be soldered to the bottom side
 - Wire antenna, helical antenna, SMA antenna support
 - TPL5010 can be used to wakeup the Atmega, with optional watchdog function
-- Voltage divier on board, enabled through two MOSFET driven by pin 0
+- Voltage divider on board, enabled through two MOSFET driven by pin 0
 - I2C and 1-Wire pullups on board
 - Input pin for interrupts with pullup resistor on board
 - Two GND pins can be powered on/off through a MOSFET driven by pin 15 to power on/off external peripherals
