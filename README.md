@@ -37,7 +37,7 @@ The following pullups/pulldowns are already included on the board for easy usage
 - Pin 4 / Interrupt / 10K pullup
 <br>
 #LMIC Pinmap
-```C
+```c
 const lmic_pinmap lmic_pins = {
     .nss = 14,
     .rxtx = LMIC_UNUSED_PIN,
