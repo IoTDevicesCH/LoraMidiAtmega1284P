@@ -46,7 +46,7 @@ The board has four solder jumpers.
 - Bottom side, SJ3, closed = TPL5010 powered, open = TPL5010 not powered
 ### TPL5010 WDT functionality on/off
 - Bottom side, SJ4, closed = TPL5010 WDT on, open = TPL5010 WDT off
-![Solderjumpers](/docs/images/solderjumpers.png?raw=true "Solderjumpers")<br>
+<br><br>![Solderjumpers](/docs/images/solderjumpers.png?raw=true "Solderjumpers")<br>
 
 ## TPL5010 configuration
 The TPL5010 provides selectable timing intervals through resistor(s). On the bottom side, R14, R15 and VR1 are wired in parallel.<br>
