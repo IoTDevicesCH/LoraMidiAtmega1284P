@@ -25,9 +25,9 @@ To power the board through VCC it is recommended to cut the trace from the LDO t
 Sleep current with WDT disabled and attached interrupt (1 minute average): 520nA<br>
 Sleep current with WDT enabled (1 minute average): 6.1μA
 ### Sleep current with TPL5010 and without RFM95, powered through the LDO:
-Sleep current with WDT disabled and TPL5010 attached as intterupt: 560nA
+Sleep current with WDT disabled and TPL5010 attached as interrupt: 560nA
 ### Sleep current with TPL5010 and without RFM95, powered through VCC (LDO disabled):
-Sleep current with WDT disabled and TPL5010 attached as intterupt: 160nA
+Sleep current with WDT disabled and TPL5010 attached as interrupt: 160nA
 
 ## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")<br>
