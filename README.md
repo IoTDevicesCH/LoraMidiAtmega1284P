@@ -36,15 +36,16 @@ The following pullups/pulldowns are already included on the board for easy usage
 - Pin 17 / SCL, 4.7K pullup
 - Pin 4 / Interrupt / 10K pullup
 <br>
-#LMIC Pinmap
-```
-const lmic_pinmap lmic_pins = {
-    .nss = 14,
-    .rxtx = LMIC_UNUSED_PIN,
-    .rst = 13,
-    .dio = {10, 11, 12},
-};
-```
+
+
+	#LMIC Pinmap
+	const lmic_pinmap lmic_pins = {
+		.nss = 14,
+		.rxtx = LMIC_UNUSED_PIN,
+		.rst = 13,
+		.dio = {10, 11, 12},
+	};
+
 
 ## Solder jumpers
 The board has four solder jumpers.
