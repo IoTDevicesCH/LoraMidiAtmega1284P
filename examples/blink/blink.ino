@@ -25,7 +25,7 @@
 */
 
 
-const int customLED = 7;
+const int customLED = 19;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
