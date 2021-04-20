@@ -1,3 +1,5 @@
+// This sketch demonstrates how to use the TPL5010 timer to wakeup the Atmgea 1284P from the most low power sleep for a transmissions to reduce power consumption
+
 /*******************************************************************************
  * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
  * Copyright (c) 2018 Terry Moore, MCCI
@@ -34,6 +36,12 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
+#include <LowPower.h>
+#include "PinChangeInterrupt.h" // https://github.com/NicoHood/PinChangeInterrupt // you can also use the attachInterrupt() function from Arduino, to be consistent through all examples this lib is here used too
+bool next = false;
+const int donePin = 3; // define done pin where TPL5010 is connected to, in our case pin 3
+const int WakePin = 2; // define WDT pin where TPL5010 is connected to, in our case pin 2
+bool wakeupReason = 0; // in the sketch we set this to 1 if waken up from pin 2
 
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
@@ -70,8 +78,7 @@ void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 static uint8_t mydata[] = "Hello, world!";
 static osjob_t sendjob;
 
-// Schedule TX every this many seconds (might become longer due to duty
-// cycle limitations).
+// This value is only used to hack timer0, set it to the programmed time configuration of the TPL5010
 const unsigned TX_INTERVAL = 120;
 
 // Pin mapping
@@ -164,7 +171,8 @@ void onEvent (ev_t ev) {
               Serial.println(F(" bytes of payload"));
             }
             // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+            next = true;
+            //os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
             break;
         case EV_LOST_TSYNC:
             Serial.println(F("EV_LOST_TSYNC"));
@@ -240,8 +248,45 @@ void setup() {
 
     // Start job (sending automatically starts OTAA too)
     do_send(&sendjob);
+
+    // Pin settings for TPL5010 usage
+    pinMode(WakePin, INPUT);
+    pinMode(donePin, OUTPUT);
+
+    // Attach TPL5010 interrupt
+    attachPCINT(digitalPinToPCINT(WakePin), wakeupFromTimer, HIGH);
 }
 
 void loop() {
-    os_runloop_once();
+    extern volatile unsigned long timer0_overflow_count;
+    if (next == false) {
+        os_runloop_once();
+    }
+    else {
+        Serial.flush(); // give the serial print chance to complete
+        // set DONE high for 100 micro seconds to tell the TPL5010 we're done
+        // if DONE was not high between interrupts, TPL5010 will reset the MCU through the reset pin if connected, otherwise it will do nothing until 'DONE' was set high once
+        digitalWrite(donePin, HIGH);
+        delayMicroseconds(100);
+        digitalWrite(donePin, LOW);
+        LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
+
+        if (wakeupReason == 1) {
+            wakeupReason = 0; // Reset wakeup reason
+
+            // LMIC uses micros() to keep track of the duty cycle, so
+            // hack timer0_overflow for a rude adjustment:
+            cli();
+            timer0_overflow_count += TX_INTERVAL * 64 * clockCyclesPerMicrosecond();
+            sei();
+            next = false;
+
+            // Start job
+            do_send(&sendjob);
+        }
+    }
+}
+
+void wakeupFromTimer(void) {
+    wakeupReason = 1;
 }

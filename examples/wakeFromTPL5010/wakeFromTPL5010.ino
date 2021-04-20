@@ -21,6 +21,7 @@ void loop() {
   // if wakeupReason is 1, we woke up from the TPL5010
   if(wakeupReason == 1) {
 	  Serial.println("Waken up from Timer");
+	  wakeupReason = 0; // Reset wakeup reason
   }
   // do something here instead of the delay
   delay(1000);

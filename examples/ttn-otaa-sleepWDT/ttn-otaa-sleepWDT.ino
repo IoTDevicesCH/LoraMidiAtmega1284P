@@ -1,3 +1,5 @@
+// This sketch demonstrates how to use the internal WDT of the Atmega 1284P to sleep between transmissions to reduce power consumption
+
 /*******************************************************************************
  * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
  * Copyright (c) 2018 Terry Moore, MCCI
@@ -34,6 +36,8 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
+#include <LowPower.h>
+bool next = false;
 
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
@@ -164,7 +168,8 @@ void onEvent (ev_t ev) {
               Serial.println(F(" bytes of payload"));
             }
             // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+            next = true;
+            //os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
             break;
         case EV_LOST_TSYNC:
             Serial.println(F("EV_LOST_TSYNC"));
@@ -243,5 +248,25 @@ void setup() {
 }
 
 void loop() {
-    os_runloop_once();
+    extern volatile unsigned long timer0_overflow_count;
+    if (next == false) {
+        os_runloop_once();
+    }
+    else {
+        Serial.flush(); // give the serial print chance to complete
+        int sleepCycles = TX_INTERVAL / 8; // how often we go to sleep for 8 seconds
+        for (int i = 0; i < sleepCycles; i++) {
+            // Enter power down state for 8 s with ADC and BOD module disabled
+            LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+
+            // LMIC uses micros() to keep track of the duty cycle, so
+            // hack timer0_overflow for a rude adjustment:
+            cli();
+            timer0_overflow_count += 8 * 64 * clockCyclesPerMicrosecond();
+            sei();
+        }
+        next = false;
+        // Start job
+        do_send(&sendjob);
+    }
 }
