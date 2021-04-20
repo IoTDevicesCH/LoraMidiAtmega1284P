@@ -1,6 +1,8 @@
 # LoraMidi Atmega1284P
 Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TPL5010 timer with watchdog function. 
 
+<a href="https://www.tindie.com/stores/iotdevices/"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png" alt="I sell on Tindie" width="200" height="55"></a>
+
 ## Specialities about this board
 - Arduino compatible
 - Atmega1284P @ 8MHz with 128KB flash and 16KB RAM, easy replacement for Atmega328p boards
