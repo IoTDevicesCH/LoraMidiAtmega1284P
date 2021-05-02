@@ -15,6 +15,6 @@ Here you will find some handy tools for easier usage of the LoraMidi Atmega1284P
 - Atmega_1284P_Atmega_1284P_LoraMidi_coil_antenna_solderhelper.stl is meant to help you to straight solder your coil antenna.
 - 0.4mm nozzle width
 - 0.1mm layer height
-- lay flat, with supports$
+- lay flat, with supports
 
 ![LoraMidi_1284P_coil_antenna_solderhelper](../docs/images/LoraMidi_1284P_coil_antenna_solderhelper.jpg?raw=true "LoraMidi_1284P_coil_antenna_solderhelper")
