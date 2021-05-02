@@ -6,6 +6,7 @@ Here you will find some handy tools for easier usage of the LoraMidi Atmega1284P
 - 0.4mm nozzle width
 - 0.1mm layer height
 - no supports
+<br>
 ![LoraMidi_1284P_header_solderhelper_1](../docs/images/LoraMidi_1284P_header_solderhelper_1.jpg?raw=true "LoraMidi_1284P_header_solderhelper_1")<br>
 ![LoraMidi_1284P_header_solderhelper_2](../docs/images/LoraMidi_1284P_header_solderhelper_2.jpg?raw=true "LoraMidi_1284P_header_solderhelper_2")<br>
 ![LoraMidi_1284P_header_solderhelper_3](../docs/images/LoraMidi_1284P_header_solderhelper_3.jpg?raw=true "LoraMidi_1284P_header_solderhelper_3")
@@ -15,4 +16,5 @@ Here you will find some handy tools for easier usage of the LoraMidi Atmega1284P
 - 0.4mm nozzle width
 - 0.1mm layer height
 - lay flat, with supports
+<br>
 ![LoraMidi_1284P_coil_antenna_solderhelper](../docs/images/LoraMidi_1284P_coil_antenna_solderhelper.jpg?raw=true "LoraMidi_1284P_coil_antenna_solderhelper")
