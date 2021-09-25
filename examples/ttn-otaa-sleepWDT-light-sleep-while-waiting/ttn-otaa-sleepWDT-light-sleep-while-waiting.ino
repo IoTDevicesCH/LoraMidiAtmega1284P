@@ -274,9 +274,7 @@ void loop() {
 
             // LMIC uses micros() to keep track of the duty cycle, so
             // hack timer0_overflow for a rude adjustment:
-            cli();
             timer0_overflow_count += 8 * 64 * clockCyclesPerMicrosecond();
-            sei();
         }
         next = false;
         // Start job
