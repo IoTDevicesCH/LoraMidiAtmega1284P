@@ -16,7 +16,7 @@ Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TP
 - Input pin for interrupts with pullup resistor on board
 - Two GND pins can be powered on/off through a MOSFET driven by pin 15 to power on/off external peripherals
 
-## Board version 2.1
+## Board version 2.0
 ### Powering the board
 Maximum input voltage on UREG pin: 5.5V<br>
 Recommended minimum input voltage on UREG pin: 3.4V<br>
@@ -24,12 +24,12 @@ LDO maximum current: 150mA<br>
 VCC on this board is 3.3V<br>
 To power the board through VCC it is recommended to cut the trace from the LDO to VCC to reduce power consumption. See in the solder jumper section how to disable the LDO.<br>
 ### Sleep current without TPL5010 and RFM95, powered through the LDO:
-Sleep current with WDT disabled and attached interrupt (1 minute average): approx 570nA<br>
-Sleep current with WDT enabled (1 minute average): approx 6.1μA
+Sleep current with WDT disabled and attached interrupt (1 minute average): 520nA<br>
+Sleep current with WDT enabled (1 minute average): 6.1μA
 ### Sleep current with TPL5010 and without RFM95, powered through the LDO:
-Sleep current with WDT disabled and TPL5010 attached as interrupt: approx 610nA
+Sleep current with WDT disabled and TPL5010 attached as interrupt: 560nA
 ### Sleep current with TPL5010 and without RFM95, powered through VCC (LDO disabled):
-Sleep current with WDT disabled and TPL5010 attached as interrupt: approx 200nA
+Sleep current with WDT disabled and TPL5010 attached as interrupt: 160nA
 
 ## Pinout
 ![Pinout](/docs/images/pinout.png?raw=true "Pinout")<br>
