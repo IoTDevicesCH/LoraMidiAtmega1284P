@@ -355,5 +355,6 @@ Release/
 *.vcxproj*
 *.sln
 Thumbs.db
+.DS_Store
 
 

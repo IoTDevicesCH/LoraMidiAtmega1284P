@@ -4,9 +4,9 @@
 
 int batteryReadPin = A0;        // set the input pin for the battery measurement
 int voltageDividerPin = 0;      // set the pin to enable the voltage divider
-const float AREF = 1.1;         // internal reference votlage, for better accuracy use the printed value on the sticker!
-const float RGND = 20.0;          // voltage divider resistor from A0 to GND, for better accuracy use the printed value on the sticker! Value in K ohms
-const float RSUP = 100.0;         // voltage divider resistor from A0 to VCC or UREG depending on solder jumper, for better accuracy use the printed value on the sticker! Value in K ohms
+const float AREF = 1.1;         // internal reference voltage. For more accurate measurement, use the AREF value from the sticker on the board.
+const float RGND = 20.0;        // voltage divider resistor from A0 to GND. Value in K ohms
+const float RSUP = 100.0;       // voltage divider resistor from A0 to VCC or UREG depending on solder jumper. Value in K ohms
 
 void setup() {
   Serial.begin(115200);

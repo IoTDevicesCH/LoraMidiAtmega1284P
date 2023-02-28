@@ -1,5 +1,5 @@
 # LoraMidi Atmega1284P
-Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TPL5010 timer with watchdog function. 
+Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module, TPL5010 timer with optional watchdog function and switched GND pins. 
 
 <a href="https://www.tindie.com/stores/iotdevices/"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png" alt="I sell on Tindie" width="200" height="55"></a>
 
@@ -16,7 +16,7 @@ Special and small Lora(WAN) board using an Atmega1284P chip, RFM95 module and TP
 - Input pin for interrupts with pullup resistor on board
 - Two GND pins can be powered on/off through a MOSFET driven by pin 15 to power on/off external peripherals
 
-## Board version 2.1
+## Board version 2.3
 ### Powering the board
 Maximum input voltage on UREG pin: 5.5V<br>
 Recommended minimum input voltage on UREG pin: 3.4V<br>
@@ -28,6 +28,8 @@ Sleep current with WDT disabled and attached interrupt (1 minute average): appro
 Sleep current with WDT enabled (1 minute average): approx 6.1μA
 ### Sleep current with TPL5010 and without RFM95, powered through the LDO:
 Sleep current with WDT disabled and TPL5010 attached as interrupt: approx 610nA
+### Sleep current with TPL5010 and RFM95, powered through the LDO:
+Sleep current with TPL5010 and RFM95, powered through the LDO: approx 1.5μA
 ### Sleep current with TPL5010 and without RFM95, powered through VCC (LDO disabled):
 Sleep current with WDT disabled and TPL5010 attached as interrupt: approx 200nA
 
@@ -81,7 +83,10 @@ Please check the datasheet on page 14 and 15 of the TPL5010 for the available ti
   - EEPROM: EEPROM retained
   - Variant: 1284P
   - BOD: BOD Disabled
- 
+
+## More accurate supply voltage measurement
+If you want a more accurate reading of the supply voltage, use the AREF value from the sticker on the board.
+
 ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
 With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
 
