@@ -84,7 +84,9 @@ Please check the datasheet on page 14 and 15 of the TPL5010 for the available ti
   - EEPROM: EEPROM retained
   - Variant: 1284P
   - BOD: BOD Disabled
+
 ![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")
+
 With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
 
 ## More accurate supply voltage measurement
