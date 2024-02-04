@@ -74,6 +74,7 @@ Please check the datasheet on page 14 and 15 of the TPL5010 for the available ti
 ## How to get started
 - Install current version of Arduino IDE
 - Add the following additional board manager for Atmega1284P support from MightyCore: https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
+  - Install version 2.2.2, starting with version 3.0.0, a new bootloader (Urboot) is used. Currently boards are still shipped with Optiboot bootloader
 - Select the following settings in your Arduino IDE
   - Board: Atmega1284
   - Bootloader: Yes (UART0)
@@ -83,12 +84,12 @@ Please check the datasheet on page 14 and 15 of the TPL5010 for the available ti
   - EEPROM: EEPROM retained
   - Variant: 1284P
   - BOD: BOD Disabled
+<br>
+![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
+With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
 
 ## More accurate supply voltage measurement
 If you want a more accurate reading of the supply voltage, use the AREF value from the sticker on the board.
-
-![Arduino Settings](/docs/images/arduinoSettings.png?raw=true "Arduino Settings")<br>
-With the above settings you will be able to upload code through an FTDI adapter as with any other Arduino, like the MiniPro.
 
 ## Device pictures
 # Device
